@@ -6,6 +6,11 @@ public class CalculateSum {
 	
 	private DataCalculate datacalculate;
 	
+	
+	public void setDatacalculate(DataCalculate datacalculate) {
+		this.datacalculate = datacalculate;
+	}
+
 	public int sumCalculation(int[] data) {
 		int sum=0;
 		
