@@ -8,6 +8,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -55,6 +57,17 @@ public class FizzBuzzTest {
 		String expected = "1";
 		
 		assertEquals(expected, FizzBuzz.compute(1), "Should return 1");
+		
+	}
+	
+	@DisplayName("testing with CSV data")
+	@ParameterizedTest(name="value={0}, expected={1}")
+	@CsvFileSource(resources="/test_data.csv")
+	@Order(3)
+	void testCSVDataFile(int value, String expected) {
+		
+		
+		assertEquals(expected, FizzBuzz.compute(value));
 		
 	}
 
